@@ -19,7 +19,7 @@ public interface StudentMapper {
             @Result(property = "username", column = "user_name"),
             @Result(property = "password", column = "password")
     })
-    Teacher getByStudentId(Long studentID);
+    Student getByStudentId(Long studentID);
 
     @Insert("insert into student(user_name, password, student_id) " +
             "values(#{username}, #{password}, #{studentID})")

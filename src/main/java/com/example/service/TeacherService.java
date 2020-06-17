@@ -22,14 +22,26 @@ public class TeacherService {
 
 
     public ResultReturn register(Teacher teacher){
-
         //先判断该教师是否注册过账号
         if (teacherMapper.getByTeacherId(teacher.getTeacherID()) == null){
-            System.out.println("不存在");
             teacherMapper.insert(teacher);
             return ResultReturnUtil.success("注册成功");
         }else {
             return ResultReturnUtil.fail("该教工号已被注册");
+        }
+    }
+
+    public ResultReturn login(Long teacherID, String password){
+
+        Teacher teacher = teacherMapper.getByTeacherId(teacherID);
+
+        if (teacher == null){
+            return ResultReturnUtil.fail("该用户不存在");
+        }else {
+            if (teacher.getPassword().equals(password))
+                return ResultReturnUtil.success("登录成功");
+            else
+                return ResultReturnUtil.fail("密码错误");
         }
     }
 }

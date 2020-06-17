@@ -2,6 +2,7 @@ package com.example.service;
 
 import com.example.entry.ResultReturn;
 import com.example.entry.Student;
+import com.example.entry.Teacher;
 import com.example.mapper.StudentMapper;
 import com.example.util.ResultReturnUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,20 @@ public class StudentService {
             return ResultReturnUtil.success("注册成功");
         }else {
             return ResultReturnUtil.fail("该学号已被注册");
+        }
+    }
+
+    public ResultReturn login(Long studentID, String password){
+
+        Student Student = studentMapper.getByStudentId(studentID);
+
+        if (Student == null){
+            return ResultReturnUtil.fail("该用户不存在");
+        }else {
+            if (Student.getPassword().equals(password))
+                return ResultReturnUtil.success("登录成功");
+            else
+                return ResultReturnUtil.fail("密码错误");
         }
     }
 }
