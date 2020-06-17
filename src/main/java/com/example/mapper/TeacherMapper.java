@@ -19,15 +19,16 @@ public interface TeacherMapper {
     })
     List<Teacher> getAll();
 
-    @Select("select * from teacher where id = #{id}")
+    @Select("select * from teacher where teacher_id = #{teacherID}")
     @Results({
             @Result(property = "id", column = "id"),
             @Result(property = "username", column = "user_name"),
             @Result(property = "password", column = "password")
     })
-    Teacher getById(Long id);
+    Teacher getByTeacherId(Long teacherID);
 
-    @Insert("insert into teacher(id, user_name, password) values(#{id}, #{username}, #{password})")
+    @Insert("insert into teacher(user_name, password, teacher_id) " +
+            "values(#{username}, #{password}, #{teacherID})")
     void insert(Teacher teacher);
 
     @Update("update teacher set password=#{password}, name=#{name}, techer_id=#{teacherID}")
