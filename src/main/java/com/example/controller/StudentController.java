@@ -37,4 +37,9 @@ public class StudentController {
     public ResultReturn updateAnswer(@RequestBody StudentAnswer answer){
         return  studentService.update(answer);
     }
+
+    @RequestMapping("/reviewAnswer")
+    public ResultReturn reviewAnswer(@RequestBody StudentAnswer answer){
+        return studentService.getAnswer(answer.getStudentId(), answer.getHomeworkId());
+    }
 }

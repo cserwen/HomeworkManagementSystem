@@ -57,4 +57,9 @@ public class StudentService {
         answerMapper.update(answer);
         return ResultReturnUtil.success("修改成功");
     }
+
+    public ResultReturn getAnswer(Long studentId, Long homeworkId){
+        StudentAnswer answer = answerMapper.selectById(studentId, homeworkId);
+        return ResultReturnUtil.success("查询成功", answer);
+    }
 }
