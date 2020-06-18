@@ -66,4 +66,11 @@ public class TeacherService {
         return ResultReturnUtil.success("查询成功", homeworks);
     }
 
+    public ResultReturn updateHomework(Homework homework){
+        homeworkMapper.update(homework);
+        Homework newHomework = homeworkMapper.selectById(homework.getId());
+        return ResultReturnUtil.success("修改成功", newHomework);
+
+    }
+
 }

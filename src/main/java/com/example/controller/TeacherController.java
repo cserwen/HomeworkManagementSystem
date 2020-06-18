@@ -43,6 +43,11 @@ public class TeacherController {
         return teacherService.getAllHomework();
     }
 
+    @RequestMapping("/updateHomework")
+    public ResultReturn updateHomework(@RequestBody Homework homework){
+        return teacherService.updateHomework(homework);
+    }
+
 
 
 }

@@ -3,10 +3,7 @@ package com.example.mapper;
 import com.example.entry.Homework;
 import com.example.entry.Student;
 import com.example.entry.Teacher;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -39,4 +36,7 @@ public interface HomeworkMapper {
             @Result(property = "updateTime", column = "update_time")
     })
     List<Homework> selectAll();
+
+    @Update("update homework set title=#{title}, content=#{content}, update_time=#{updateTime} where id=#{id}")
+    void update(Homework homework);
 }
