@@ -1,6 +1,8 @@
 package com.example.controller;
 
 import com.example.entry.ResultReturn;
+import com.example.entry.Student;
+import com.example.entry.Teacher;
 import com.example.service.StudentService;
 import com.example.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,15 +23,16 @@ public class LoginController {
     @Autowired
     private StudentService studentService;
 
-    @PostMapping("/teacher")
-    public ResultReturn teacher(@RequestParam("teacherID") Long teacherID, @RequestParam("password") String password){
 
-        return teacherService.login(teacherID, password);
+    @PostMapping("/teacher")
+    public ResultReturn teacher(@RequestBody Teacher teacher){
+
+        return teacherService.login(teacher.getTeacherID(), teacher.getPassword());
     }
 
     @PostMapping("/student")
-    public ResultReturn student(@RequestParam("studentID") Long teacherID, @RequestParam("password") String password){
+    public ResultReturn student(@RequestBody Student student){
 
-        return studentService.login(teacherID, password);
+        return studentService.login(student.getStudentID(), student.getPassword());
     }
 }

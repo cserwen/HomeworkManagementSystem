@@ -1,7 +1,9 @@
 package com.example.service;
 
+import com.example.entry.Homework;
 import com.example.entry.ResultReturn;
 import com.example.entry.Teacher;
+import com.example.mapper.HomeworkMapper;
 import com.example.mapper.TeacherMapper;
 import com.example.util.ResultReturnUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,9 @@ public class TeacherService {
 
     @Autowired
     private TeacherMapper teacherMapper;
+
+    @Autowired
+    private HomeworkMapper homeworkMapper;
 
 
     public ResultReturn register(Teacher teacher){
@@ -43,5 +48,10 @@ public class TeacherService {
             else
                 return ResultReturnUtil.fail("密码错误");
         }
+    }
+
+    public ResultReturn addHomework(Homework homework){
+        homeworkMapper.insert(homework);
+        return ResultReturnUtil.success("添加成功");
     }
 }

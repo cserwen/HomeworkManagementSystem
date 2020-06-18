@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.example.entry.Homework;
 import com.example.entry.ResultReturn;
 import com.example.entry.Teacher;
 import com.example.service.TeacherService;
@@ -26,4 +27,11 @@ public class TeacherController {
     public ResultReturn register(@RequestBody Teacher teacher){
         return teacherService.register(teacher);
     }
+
+    @RequestMapping("/addHomework")
+    public ResultReturn addHomework(@RequestBody Homework homework){
+        return teacherService.addHomework(homework);
+    }
+
+
 }
