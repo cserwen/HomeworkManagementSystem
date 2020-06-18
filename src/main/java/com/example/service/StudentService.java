@@ -2,7 +2,9 @@ package com.example.service;
 
 import com.example.entry.ResultReturn;
 import com.example.entry.Student;
+import com.example.entry.StudentAnswer;
 import com.example.entry.Teacher;
+import com.example.mapper.StudentAnswerMapper;
 import com.example.mapper.StudentMapper;
 import com.example.util.ResultReturnUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,9 @@ public class StudentService {
 
     @Autowired
     private StudentMapper studentMapper;
+
+    @Autowired
+    private StudentAnswerMapper answerMapper;
 
     public ResultReturn register(Student student){
         //先判断该教师是否注册过账号
@@ -41,5 +46,10 @@ public class StudentService {
             else
                 return ResultReturnUtil.fail("密码错误");
         }
+    }
+
+    public ResultReturn submit(StudentAnswer answer){
+        answerMapper.insert(answer);
+        return ResultReturnUtil.success("提交成功");
     }
 }

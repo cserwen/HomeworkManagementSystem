@@ -2,6 +2,7 @@ package com.example.controller;
 
 import com.example.entry.ResultReturn;
 import com.example.entry.Student;
+import com.example.entry.StudentAnswer;
 import com.example.mapper.StudentMapper;
 import com.example.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,5 +25,11 @@ public class StudentController {
     @RequestMapping("/register")
     public ResultReturn register(@RequestBody Student student){
         return studentService.register(student);
+    }
+
+
+    @RequestMapping("/submit")
+    public ResultReturn submit(@RequestBody StudentAnswer answer){
+        return studentService.submit(answer);
     }
 }

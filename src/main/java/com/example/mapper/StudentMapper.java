@@ -24,4 +24,5 @@ public interface StudentMapper {
     @Insert("insert into student(user_name, password, student_id) " +
             "values(#{username}, #{password}, #{studentID})")
     void insert(Student student);
+
 }
