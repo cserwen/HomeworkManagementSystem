@@ -52,4 +52,9 @@ public class StudentService {
         answerMapper.insert(answer);
         return ResultReturnUtil.success("提交成功");
     }
+
+    public ResultReturn update(StudentAnswer answer){
+        answerMapper.update(answer);
+        return ResultReturnUtil.success("修改成功");
+    }
 }

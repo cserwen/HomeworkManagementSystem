@@ -32,4 +32,9 @@ public class StudentController {
     public ResultReturn submit(@RequestBody StudentAnswer answer){
         return studentService.submit(answer);
     }
+
+    @RequestMapping("/updateAnswer")
+    public ResultReturn updateAnswer(@RequestBody StudentAnswer answer){
+        return  studentService.update(answer);
+    }
 }
