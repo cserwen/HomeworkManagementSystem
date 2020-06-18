@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -54,4 +55,15 @@ public class TeacherService {
         homeworkMapper.insert(homework);
         return ResultReturnUtil.success("添加成功");
     }
+
+    public ResultReturn reviewHomework(Long id){
+        Homework homework = homeworkMapper.selectById(id);
+        return ResultReturnUtil.success("查询成功", homework);
+    }
+
+    public ResultReturn getAllHomework(){
+        List<Homework> homeworks = homeworkMapper.selectAll();
+        return ResultReturnUtil.success("查询成功", homeworks);
+    }
+
 }

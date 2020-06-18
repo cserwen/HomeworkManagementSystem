@@ -13,7 +13,7 @@ import org.apache.ibatis.annotations.Select;
  */
 public interface StudentMapper {
 
-    @Select("select * from student where student_id = #{StudentID}")
+    @Select("select * from student where student_id = #{studentID}")
     @Results({
             @Result(property = "id", column = "id"),
             @Result(property = "username", column = "user_name"),

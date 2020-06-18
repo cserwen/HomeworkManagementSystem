@@ -33,5 +33,16 @@ public class TeacherController {
         return teacherService.addHomework(homework);
     }
 
+    @RequestMapping("/reviewHomework")
+    public ResultReturn reviewHomework(@RequestBody Homework homework){
+        return teacherService.reviewHomework(homework.getId());
+    }
+
+    @RequestMapping("/getAllHomework")
+    public ResultReturn getAllHomework(){
+        return teacherService.getAllHomework();
+    }
+
+
 
 }
