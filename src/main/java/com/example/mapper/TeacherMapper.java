@@ -27,8 +27,8 @@ public interface TeacherMapper {
     })
     Teacher getByTeacherId(Long teacherID);
 
-    @Insert("insert into teacher(user_name, password, teacher_id) " +
-            "values(#{username}, #{password}, #{teacherID})")
+    @Insert("insert into teacher(user_name, password, teacher_id, name) " +
+            "values(#{username}, #{password}, #{teacherID}, #{name})")
     void insert(Teacher teacher);
 
     @Update("update teacher set password=#{password}, name=#{name}, techer_id=#{teacherID}")

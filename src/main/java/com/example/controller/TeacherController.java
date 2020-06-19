@@ -5,6 +5,7 @@ import com.example.entry.ResultReturn;
 import com.example.entry.Teacher;
 import com.example.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,6 +19,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/teacher")
+@CrossOrigin(allowCredentials="true",maxAge = 3600)
 public class TeacherController {
 
     @Autowired

@@ -21,8 +21,8 @@ public interface StudentMapper {
     })
     Student getByStudentId(Long studentID);
 
-    @Insert("insert into student(user_name, password, student_id) " +
-            "values(#{username}, #{password}, #{studentID})")
+    @Insert("insert into student(user_name, password, student_id, name) " +
+            "values(#{username}, #{password}, #{studentID}, #{name})")
     void insert(Student student);
 
 }
