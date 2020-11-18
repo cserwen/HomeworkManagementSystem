@@ -5,7 +5,6 @@
 - 前后端分离
 - 前端采用jQuery，后端采用SpringBoot
 - ORM层使用Mybatis
-- 使用了Lombok
 
 
 
